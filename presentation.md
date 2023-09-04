@@ -146,6 +146,7 @@ absurd :: Void -> a
 
 - Easy destructuring
 - Easy recursion
+- Exhaustiveness checking
 
 ### Destructuring Maybe
 
