@@ -66,11 +66,12 @@ main = putStrLn "Hello, World!"
 
 ---
 
-## Pure functions
+## Functions
 
-- Functions in mathematical sense (functor)
+- Functions in mathematical sense
 - No side-effects (usually)
 - Monads 🧠
+- Currying 🍛
 
 ### IO Monad
 
@@ -88,6 +89,10 @@ safeDiv _ 0 = Nothing
 safeDiv a b = Just (a `div` b)
 ```
 
+```hs
+div4By = safeDiv 4
+div4By 2 -- Just 2
+```
 ---
 
 ## Lazy execution
@@ -98,6 +103,7 @@ Expression only evaluates when the result is required.
 - Allows for optimizations
 - Can make profiling hard
 
+<!-- TODO: Needs a bit more content -->
 
 ---
 
@@ -157,6 +163,12 @@ printIfHasValue Nothing = print "x is Nothing"
 ```
 
 ---
+
+## Loops
+
+- No loops
+
+---
 ## Recursion
 
 - Only way to loop
@@ -177,6 +189,7 @@ factorial n = n * factorial (n - 1)
 - Notable usages:
     - Facebook spam filter
     - Hasura GraphQL engine
+    - Cardano blockchain
     - GHC (Haskell compiler)
 
 ---
