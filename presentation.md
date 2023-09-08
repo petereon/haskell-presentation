@@ -7,6 +7,7 @@
 ## What is Haskell?
 
 - Functional programming language
+- Est. 1990 
 - Turing complete
 - General purpose (❓)
 - Based on lambda calculus
@@ -151,14 +152,13 @@ absurd :: Void -> a
 
 ## Provability
 
-- Lambda calculus
 - Category theory
 - Curry-Howard correspondence
 - Provable programs
 - Provers:
-  - Agda
   - Coq
   - Lean
+  - Agda
 
 ---
 
