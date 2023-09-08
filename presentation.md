@@ -1,8 +1,6 @@
-
 # Haskell
 
---> A deep dive nobody asked for 
-
+--> A deep dive nobody asked for
 
 ---
 
@@ -25,12 +23,12 @@ What sets it apart:
 ---
 
 ```
-██╗    ██╗██╗  ██╗██╗   ██╗    ██╗  ██╗ █████╗ ███████╗██╗  ██╗███████╗██╗     ██╗   ██████╗ 
+██╗    ██╗██╗  ██╗██╗   ██╗    ██╗  ██╗ █████╗ ███████╗██╗  ██╗███████╗██╗     ██╗   ██████╗
 ██║    ██║██║  ██║╚██╗ ██╔╝    ██║  ██║██╔══██╗██╔════╝██║ ██╔╝██╔════╝██║     ██║   ╚════██╗
 ██║ █╗ ██║███████║ ╚████╔╝     ███████║███████║███████╗█████╔╝ █████╗  ██║     ██║     ▄███╔╝
-██║███╗██║██╔══██║  ╚██╔╝      ██╔══██║██╔══██║╚════██║██╔═██╗ ██╔══╝  ██║     ██║     ▀▀══╝ 
-╚███╔███╔╝██║  ██║   ██║       ██║  ██║██║  ██║███████║██║  ██╗███████╗███████╗███████╗██╗   
- ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝       ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝╚═╝   
+██║███╗██║██╔══██║  ╚██╔╝      ██╔══██║██╔══██║╚════██║██╔═██╗ ██╔══╝  ██║     ██║     ▀▀══╝
+╚███╔███╔╝██║  ██║   ██║       ██║  ██║██║  ██║███████║██║  ██╗███████╗███████╗███████╗██╗
+ ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝       ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝╚═╝
 ```
 
 ### Benefits 📈
@@ -53,6 +51,7 @@ What sets it apart:
 ```hs
 main = putStrLn "Hello, World!"
 ```
+
 ### Syntax
 
 - Small amount of syntax
@@ -79,6 +78,7 @@ main = putStrLn "Hello, World!"
 log :: String -> IO ()
 log s = putStrLn s
 ```
+
 Can only ever call `log` in another function that returns `IO ()`
 
 ### Maybe Monad
@@ -93,6 +93,7 @@ safeDiv a b = Just (a `div` b)
 div4By = safeDiv 4
 div4By 2 -- Just 2
 ```
+
 ---
 
 ## Lazy execution
@@ -135,9 +136,9 @@ let a = take 2 a ++ [5]
 - Strong
 - Allows polymorphism
 - Allows algebraic types
-    - Unions (`String | Int`)
-    - Tuples (`(String, Int)`)
-    - etc ...
+  - Unions (`String | Int`)
+  - Tuples (`(String, Int)`)
+  - etc ...
 - Automatic type inference
 
 Fun side effects:
@@ -145,6 +146,19 @@ Fun side effects:
 ```haskell
 absurd :: Void -> a
 ```
+
+---
+
+## Provability
+
+- Lambda calculus
+- Category theory
+- Curry-Howard correspondence
+- Provable programs
+- Provers:
+  - Agda
+  - Coq
+  - Lean
 
 ---
 
@@ -167,11 +181,14 @@ printIfHasValue Nothing = print "x is Nothing"
 ## Loops
 
 - No loops
+- Not one
+- Anywhere
 
 ---
+
 ## Recursion
 
-- Only way to loop
+- Only way to "loop"
 - Tail-call optimization
 
 ```haskell
@@ -182,19 +199,35 @@ factorial n = n * factorial (n - 1)
 
 ---
 
+## Performance
+
+- Slow compilation 🐢
+- LLVM compiled
+- No runtime
+- Garbage collected
+- Ridiculously fast execution 🚀
+    - Laziness
+    - Immutability
+    - Purity
+    - Type system
+- Optimization options
+
+---
+
 ## Real-World Applications
 
 - Not a lot of business-world applications
 - Mostly used for research, compilers and parsers
 - Notable usages:
-    - Facebook spam filter
-    - Hasura GraphQL engine
-    - Cardano blockchain
-    - GHC (Haskell compiler)
+  - Facebook spam filter
+  - Hasura GraphQL engine
+  - Cardano blockchain
+  - GHC (Haskell compiler)
 
 ---
 
 ## Conclusion
+
 - Fun 💪
 - Useless 🥲
 
@@ -206,19 +239,21 @@ factorial n = n * factorial (n - 1)
 
 ## Resources
 
-
 [Haskell for Imperative Programmers](https://www.youtube.com/watch?v=Vgu82wiiZ90&list=PLe7Ei6viL6jGp1Rfu0dil1JH1SHk9bgDV)
+
 - Video Series
 - Easy going
 - Includes exercises
 
 [Category Theory for Programmers](https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/)
+
 - Website
 - Category theory focused
 - Very math heavy
 - Includes exercises
 
 [Learn You a Haskell for Great Good!](http://learnyouahaskell.com/)
+
 - Book
 - Easy going
 - Inaccurate at times
