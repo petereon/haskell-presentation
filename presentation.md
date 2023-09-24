@@ -76,8 +76,10 @@ main = putStrLn "Hello, World!"
 ### IO Monad
 
 ```hs
-log :: String -> IO ()
-log s = putStrLn s
+readConfig :: IO String
+readConfig = do
+  contents <- readFile "config.yaml"
+  return contents
 ```
 
 Can only ever call `log` in another function that returns `IO ()`
@@ -85,14 +87,14 @@ Can only ever call `log` in another function that returns `IO ()`
 ### Maybe Monad
 
 ```hs
-safeDiv :: Float -> Float -> Maybe Float
-safeDiv _ 0 = Nothing
-safeDiv a b = Just (a `div` b)
+safeDivision :: Float -> Float -> Maybe Float
+safeDivision _ 0 = Nothing
+safeDivision a b = Just (a `div` b)
 ```
 
 ```hs
-div4By = safeDiv 4
-div4By 2 -- Just 2
+divide4By = safeDiv 4
+divide4By 2 -- Just 2
 ```
 
 ---
@@ -101,9 +103,11 @@ div4By 2 -- Just 2
 
 Expression only evaluates when the result is required.
 
-- Deals with infinite data-structures
-- Allows for optimizations
+```diff
++ Deals with infinite data-structures
++ Allows for compiler-level optimizations
 - Can make profiling hard
+```
 
 <!-- TODO: Needs a bit more content -->
 
@@ -114,20 +118,16 @@ Expression only evaluates when the result is required.
 > "An object is immutable when its state doesn't change after it has been initialized" 🤓
 
 - No in-place value changing
-- Always deep-copying
-
-Python:
-
-```python
-a = [1,2,3]
-a[2] = 5
-```
+- Always deep-copying (sort of)
 
 Haskell:
 
 ```haskell
-let a = [1,2,3]
-let a = take 2 a ++ [5]
+replaceAtIndex [] _ _ = []
+replaceAtIndex (x:xs) 0 newVal = newVal:xs
+replaceAtIndex (x:xs) n newVal = x:replaceAtIndex xs (n-1) newVal
+
+relaceAtIndex [1,2,3] 2 5 -- [1,2,5]
 ```
 
 ---
@@ -171,9 +171,9 @@ absurd :: Void -> a
 ### Destructuring Maybe
 
 ```haskell
-printIfHasValue:: Maybe a -> IO ()
+printIfHasValue:: Show a => Maybe a -> IO ()
 printIfHasValue (Just x) = print x
-printIfHasValue Nothing = print "x is Nothing"
+printIfHasValue Nothing = return ()
 ```
 
 ---
