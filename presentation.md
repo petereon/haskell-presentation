@@ -7,7 +7,7 @@
 ## What is Haskell?
 
 - Functional programming language
-- Est. 1990 
+- Est. 1990
 - Turing complete
 - General purpose (❓)
 - Based on lambda calculus
@@ -82,7 +82,7 @@ readConfig = do
   return contents
 ```
 
-Can only ever call `log` in another function that returns `IO ()`
+Can only ever call `readConfig` in another function that deals with `IO a`
 
 ### Maybe Monad
 
@@ -120,8 +120,6 @@ Expression only evaluates when the result is required.
 - No in-place value changing
 - Always deep-copying (sort of)
 
-Haskell:
-
 ```haskell
 replaceAtIndex [] _ _ = []
 replaceAtIndex (x:xs) 0 newVal = newVal:xs
@@ -139,7 +137,7 @@ relaceAtIndex [1,2,3] 2 5 -- [1,2,5]
 - Allows algebraic types
   - Unions (`String | Int`)
   - Tuples (`(String, Int)`)
-  - etc ...
+  - Unit (`()`), Void (`Void`)
 - Automatic type inference
 
 Fun side effects:
@@ -206,10 +204,10 @@ factorial n = n * factorial (n - 1)
 - No runtime
 - Garbage collected
 - Ridiculously fast execution 🚀
-    - Laziness
-    - Immutability
-    - Purity
-    - Type system
+  - Laziness
+  - Immutability
+  - Purity
+  - Type system
 - Optimization options
 
 ---
