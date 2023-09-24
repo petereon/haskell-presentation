@@ -58,9 +58,9 @@ main = putStrLn "Hello, World!"
 - Small amount of syntax
 - Few keywords
 - No variables (kinda 🤷)
+- No assignments (kinda)
 - No statements
 - No loops
-- No assignments (kinda)
 
 --> Everything is an expression
 
