@@ -155,7 +155,7 @@ absurd :: Void -> a
 - Category theory
 - Curry-Howard correspondence
 - Provable programs
-- Provers:
+- Proof assistants:
   - Coq
   - Lean
   - Agda
