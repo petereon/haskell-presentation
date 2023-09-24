@@ -222,6 +222,7 @@ factorial n = n * factorial (n - 1)
   - Facebook spam filter
   - Hasura GraphQL engine
   - Cardano blockchain
+  - Elm compiler
   - GHC (Haskell compiler)
 
 ---
