@@ -208,11 +208,6 @@ printIfHasValue Nothing = return ()
 
 ---
 
-## Loops
-
-- No loops
-
----
 
 ## Recursion
 
