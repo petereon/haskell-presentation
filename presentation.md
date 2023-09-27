@@ -17,7 +17,7 @@ What sets it apart:
 
 - Pure functions
 - Immutability
-- Lazy execution
+- Lazy evaluation
 - Algebraic type-system
 - Pattern-matching
 
@@ -92,14 +92,16 @@ safeDivision _ 0 = Nothing
 safeDivision a b = Just (a `div` b)
 ```
 
+### Currying
+
 ```hs
-divide4By = safeDiv 4
+divide4By = safeDivision 4
 divide4By 2 -- Just 2
 ```
 
 ---
 
-## Lazy execution
+## Lazy Evaluation
 
 Expression only evaluates when the result is required.
 
@@ -109,7 +111,21 @@ Expression only evaluates when the result is required.
 - Can make profiling hard
 ```
 
-<!-- TODO: Needs a bit more content -->
+### Example (lazy evaluation makes debugging a living hell)
+
+#### Haskell
+
+```hs
+add a b = a + a
+add 10 (3/0) -- 20
+```
+
+#### Python
+
+```python
+add = lambda a, b: a + a
+add(10, (3/0)) # ZeroDivisionError: division by zero
+```
 
 ---
 
@@ -130,7 +146,8 @@ relaceAtIndex [1,2,3] 2 5 -- [1,2,5]
 
 ---
 
-## Algebraic type system
+## Algebraic Type System
+### Characteristics
 
 - Strong
 - Allows polymorphism
@@ -148,28 +165,43 @@ absurd :: Void -> a
 
 ---
 
-## Provability
+## Algebraic Type System
+### Provability
 
-- Category theory
-- Curry-Howard correspondence
-- Provable programs
-- Proof assistants:
+- Category Theory
+- Curry-Howard correspondence (mapping between type system and FOL) --> Provable programs
+
+Proof assistants:
   - Coq
   - Lean
   - Agda
+
+
+`lean` example:
+```lean
+theorem p1 : (P -> Q) -> (¬ Q -> ¬ P) :=
+begin
+    assume pq,
+    assume nq,
+    assume p,
+    apply nq,
+    apply pq,
+    exact p,
+end
+```
 
 ---
 
 ## Pattern Matching
 
-- Easy destructuring
+- Destructuring on steroids
 - Easy recursion
 - Exhaustiveness checking
 
 ### Destructuring Maybe
 
 ```haskell
-printIfHasValue:: Show a => Maybe a -> IO ()
+printIfHasValue:: Maybe String -> IO ()
 printIfHasValue (Just x) = print x
 printIfHasValue Nothing = return ()
 ```
@@ -179,8 +211,6 @@ printIfHasValue Nothing = return ()
 ## Loops
 
 - No loops
-- Not one
-- Anywhere
 
 ---
 
